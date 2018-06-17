@@ -6,10 +6,9 @@ const babelify = require('babelify');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-const vueify = require('vueify')
 
 gulp.task('build', function siteBuilder(){
-    const bundler = browserify('./main.js', {debug: true})
+    const bundler = browserify('./src/main.js', {debug: true})
         .transform(babelify, {presets: ['env']});
 
     return bundler.bundle()
@@ -26,7 +25,7 @@ gulp.task('build', function siteBuilder(){
 });
 
 gulp.task('dev', function siteJsBuilder() {
-    const bundler = browserify('./main.js', {debug: true})
+    const bundler = browserify('./src/main.js', {debug: true})
         .transform(babelify, {presets: ['env']});
     
    return bundler.bundle()
